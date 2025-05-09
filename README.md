@@ -11,6 +11,6 @@ Modelo de banco de dados para gestão hospitalar, com tabelas, queries, triggers
 ## COMO USAR ##
 
 -Baixe o arquivo "Hospital.sql
-Importe no seu MySQL com o comando:
+- Importe no seu MySQL com o comando:
    ```bash
    mysql -u root -p < hospital.sql
