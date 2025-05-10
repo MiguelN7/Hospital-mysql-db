@@ -1,0 +1,38 @@
+## CONSTRAINTS ##
+
+Referenciação: FK -> Chave estrangeira
+               PK -> Chave Primária
+
+## FK na tabela Medicos referenciada pela PK de Departamento 
+ALTER TABLE MEDICOS ADD CONSTRAINT FK_MEDICOS_DEPARTAMENTO
+FOREIGN KEY (DepartamentoID) REFERENCES DEPARTAMENTO(IDDEPARTAMENTO);
+
+## FK na tabela Consultas referenciadda pela PK de Medicos
+ALTER TABLE CONSULTAS ADD CONSTRAINT FK_CONSULTAS_MEDICO
+FOREIGN KEY (MedicoID) REFERENCES Medicos(IDMEDICO);
+
+## FK na tabela Consultas referenciada pela PK da tabela Pacientes
+ALTER TABLE CONSULTAS ADD CONSTRAINT FK_CONSULTAS_PACIENTE
+FOREIGN KEY (PacienteID) REFERENCES Pacientes(IDPACIENTE);
+
+## FK na tabela Prontuarios referenciada pela PK da tabela Pacientes
+ALTER TABLE PRONTUARIOS ADD CONSTRAINT FK_PRONTUARIOS_PACIENTE
+FOREIGN KEY (PacienteID_Prontuario) REFERENCES Pacientes(IDPACIENTE);
+
+## FK na tabela Prescricoes referenciada pela PK da tabela Medicos
+ALTER TABLE PRESCRICOES ADD CONSTRAINT FK_PRESCRICOES_MEDICO
+FOREIGN KEY (MedicoID_Prescricao) REFERENCES Medicos(IDMEDICO);
+
+## FK na tabela Prescricoes referenciada pela PK da tabela Pacientes
+ALTER TABLE PRESCRICOES ADD CONSTRAINT FK_PRESCRICOES_PACIENTE
+FOREIGN KEY (PacienteID_Prescricao) REFERENCES Pacientes(IDPACIENTE);
+
+## FK na tabela Associativa Medicamento_Prescricao referenciada pela PK da tabela Prescricoes
+ALTER TABLE Medicamento_Prescricao ADD CONSTRAINT FK_MED_PRESC_PRESCRICAO
+FOREIGN KEY (PrescricaoID) REFERENCES Prescricoes(IDPRESCRICAO);
+
+## FK na tabela Associativa Medicamento_Prescricao referenciada pela PK da tabela Medicamentos
+ALTER TABLE Medicamento_Prescricao ADD CONSTRAINT FK_MED_PRESC_MEDICAMENTO
+FOREIGN KEY (MedicamentoID) REFERENCES Medicamentos(IDMEDICAMETO);
+
+
