@@ -1,0 +1,11 @@
+## VIEWS DO BANCO DE DADOS ##
+
+  # Esta view serve para exibir as consultas marcadas pelos pacientes que ainda vão ser realizadas, sendo assim, não será exibida as consultas que já se passaram.
+  Que ocorreria caso fosse executado a query "SELECT * FROM CONSULTAS". #
+
+        CREATE VIEW V_CONSULTAS_MARCADAS AS
+            SELECT C.IDCONSULTA, P.NomePaciente AS PACIENTE, M.NomeMedico AS 'DOUTOR(A)', C.DataConsulta
+            FROM CONSULTAS C
+            JOIN PACIENTES P ON C.PacienteID = P.IDPACIENTE
+            JOIN MEDICOS M ON C.MedicoID = M.IDMEDICO
+            WHERE DATE(C.DataConsulta) = CURDATE() OR DATE(C.DataConsulta) > CURDATE();
