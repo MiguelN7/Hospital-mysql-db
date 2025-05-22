@@ -11,7 +11,7 @@
           SELECT SUM(mp.Quantidade * m.preco)
           FROM Medicamento_Prescricao mp
           JOIN MEDICAMENTOS m ON mp.MedicamentoID = m.IDMEDICAMENTO
-          WHERE  pm.PrescricaoID = PrescID;
+          WHERE  mp.PrescricaoID = PrescID;
         
         END 
         $
