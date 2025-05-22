@@ -1,0 +1,39 @@
+## INSERTS ##
+
+
+
+      # Estes são os dados presentes no banco inseridos com inserts. Dados utilizados também para realizar as queries, e subqueries
+        presentes neste repositório.
+
+
+              INSERT INTO MEDICOS (NomeMedico, Especialização, DepartamentoID) VALUES
+              ('Dr. Ana Claudia Santos', 'Cardiologia', 1),
+              ('Dr. Carlos Ferreira', 'Pediatria', 2),
+              ('Dra. Mariana Oliveira', 'Ortopedia', 3),
+              ('Dr. Ricardo Souza', 'Neurologia', 4);
+              
+              -- Inserir Pacientes
+              INSERT INTO PACIENTES (NomePaciente, Aniversario, Telefone ) VALUES
+              ('João Pedro Almeida', '1990-05-15', '(11) 98765-4321'),
+              ('Maria Fernanda Costa', '1985-08-22', '(21) 99876-5432'),
+              ('Lucas Ribeiro Gomes', '2005-02-10', '(31) 99123-4567'),
+              ('Ana Lúcia Pereira', '1978-11-30', '(48) 99234-5678');
+              
+              -- Inserir Consultas
+              INSERT INTO CONSULTAS (PacienteID, MedicoID, DataConsulta, Sintoma, Status) VALUES
+              (1, 1, '2026-03-16 09:00:00', 'Dor no peito e falta de ar', 'Agendada'),
+              (2, 2, '2025-03-16 14:30:00', 'Febre alta e dor de garganta', 'Cancelada'),
+              (3, 3, '2025-05-05 12:30:00', 'Braço fraturado apos queda', 'Agendada'),
+              (4, 4, '2024-12-31 00:00:00', 'Dores de cabeça e tonturas', 'Concluída');
+              
+              -- Inserir Prontuários Médicos
+              INSERT INTO PRONTUARIOS (PacienteID_Prontuario, Diagnostico, Tratamento) VALUES
+              (1, 'Hipertensao', 'Pmedicamentos anti-hipertensivos prescritos e mudanças na dieta'),
+              (3, 'Fratura perdida do rádio', 'Gesso aplicado por 6 semanas');
+              
+              -- Inserir Medicamentos
+              INSERT INTO MEDICAMENTOS (NomeMedicamento, Preco, Quantidade_Estoque) VALUES
+              ('Paracetamol 500mg', 12.90, 150),
+              ('Amoxicillin 250mg', 25.50, 80),
+              ('Losartan 50mg', 18.75, 200),
+              ('Ibuprofen 400mg', 9.99, 120);
