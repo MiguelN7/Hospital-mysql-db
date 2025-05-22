@@ -1,1 +1,19 @@
+## TRIGGERS ##
 
+
+    # Essa TRIGGER visa gerenciar o estoque dos medicamentos dispoíveis no hospital. Ele é alterado sempre que ocorre uma alteração
+      no estoque. Em caso de ser adquirido por algum paciente, esta trigger garante a alteração automática do estoque de medicamentos.
+      E assim funciona na questão de caso chegue novos medicamentos para estoque.
+
+
+          CREATE TRIGGER AFTER_PRESCRICAO_INSERT
+          AFTER INSERT ON Medicamento_Prescricao
+          FOR EACH ROW
+          BEGIN
+          
+          	UPDATE MEDICAMENTOS
+          	SET Quantidade_Estoque = Quantidade_Estoque - NEW.Quantidade
+          	WHERE MedicamentoID = NEW.MedicamentoID;
+          
+          END
+          $
