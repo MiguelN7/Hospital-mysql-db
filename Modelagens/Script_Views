@@ -9,3 +9,23 @@
             JOIN PACIENTES P ON C.PacienteID = P.IDPACIENTE
             JOIN MEDICOS M ON C.MedicoID = M.IDMEDICO
             WHERE DATE(C.DataConsulta) = CURDATE() OR DATE(C.DataConsulta) > CURDATE();
+
+
+  # Esta view serve para exibir o historico do paciente, exibindo o nome do paciente, o médico dele, a data de sua consulta e o 
+    sintoma do mesmo. Esse método de view serve para economizar tempo do colaborador que for procurar informações sobre os pacientes,
+    e não sendo necessário digitar longas queries de SELECT e INNER JOIN.
+
+        CREATE VIEW V_Historico_Paciente AS
+		SELECT 
+			p.IDPACIENTE,
+			p.NomePaciente AS Paciente,
+			m.NomeMedico AS Medico,
+			c.DataConsulta,
+			c.Sintoma
+
+			FROM Consultas c 
+			JOIN Pacientes p ON p.IDPACIENTE = c.PacienteID
+			JOIN Medicos m ON c.MedicoID = m.IDMEDICO;
+
+
+
