@@ -2,8 +2,7 @@
 
 
     # Essa TRIGGER visa gerenciar o estoque dos medicamentos dispoíveis no hospital. Ele é alterado sempre que ocorre uma alteração
-      no estoque. Em caso de ser adquirido por algum paciente, esta trigger garante a alteração automática do estoque de medicamentos.
-      E assim funciona na questão de caso chegue novos medicamentos para estoque.
+      no estoque em caso de chegar novos medicamentos para estoque.
 
 
           CREATE TRIGGER AFTER_PRESCRICAO_INSERT
