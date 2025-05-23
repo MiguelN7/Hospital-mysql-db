@@ -5,6 +5,7 @@
       no estoque em caso de chegar novos medicamentos para estoque.
 
 
+          DELIMITER $
           CREATE TRIGGER AFTER_PRESCRICAO_INSERT
           AFTER INSERT ON Medicamento_Prescricao
           FOR EACH ROW
@@ -14,5 +15,20 @@
           	SET Quantidade_Estoque = Quantidade_Estoque - NEW.Quantidade
           	WHERE MedicamentoID = NEW.MedicamentoID;
           
-          END
-          $
+          END $
+          DELIMITER ;
+
+
+    # Esta Trigger serve para atualizar o status de uma consulta. Onde ela será atualizada de "Agendada" para "Concluida" caso
+      alguma prescrição seja feita referente ao paciente daquela consulta. Evidenciando que de fato a consulta já foi concluída.
+
+         DELIMITER $
+         CREATE TRIGGER AFTER_CONSULTA_CONCLUIDA
+        	AFTER INSERT ON CONSULTAS 
+        	FOR EACH ROW
+        	BEGIN
+        		UPDATE CONSULTAS
+        		SET Status ='Concluida'
+        		where IDCONSULTA = NEW.IDCONSULTA;
+          END $
+          DELIMITER ;
